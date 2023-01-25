@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Den-Noch</title>
+</head>
+
+<body>
+    <div class="cart__wrapper">
+        <button class="cart__close" onclick="cartClose()"><img src="img/cart-cross.svg" alt=""></button>
+        <div class="cart__bg"></div>
+        <div class="cart__menu">
+            <h2 class="cart__menu-title">Ваш заказ: </h2>
+            <div class="cart-item">
+                <div class="cart-item__img"></div>
+                <h2 class="cart-item__title">Шторы день-ночь</h2>
+                <span class="cart-item__counter">
+                    <button class="decrement" onclick="cartDecrement()"><img src="img/minus.svg" alt=""></button>
+                    <span class="cart-item__counter-count">1</span>
+                    <button class="increment" onclick="cartIncrement()"><img src="img/plus.svg" alt=""></button>
+                </span>
+                <span class="cart-result"><span class="cart-result__num"></span>грн.</span>
+                <button class="delete-cart" onclick="cartClose()"><img src="img/cross.svg" alt=""></button>
+            </div>
+            <p class="total-price">Сумма: <span class="total-price__num"></span> грн.</p>
+
+            <form class="cart-inputs" id="main-form">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input id="phone" type="tel" name="phone" required />
+                <select name="city">
+                    <option value="">Выберете город из списка</option>
+                    <option value="Днепр">Днепр</option>
+                    <option value="Одесса">Одесса</option>
+                    <option value="Николаев">Николаев</option>
+                    <option value="Мелитополь">Мелитополь</option>
+                    <option value="Херсон">Херсон</option>
+                    <option value="Киев">Киев</option>
+                </select>
+                <input type="submit" class="cart-submit" value="РАССЧИТАТЬ СТОИМОСТЬ">
+            </form>
+            <p class="cart-last">замер и доставка БЕСПЛАТНО!</p>
+        </div>
+    </div>
+
+    <div class="contacts">
+        <a href="#"><img src="img/contacts-icon5.svg" alt=""></a>
+        <a href="#"><img src="img/contacts-icon4.svg" alt=""></a>
+        <a href="#"><img src="img/contacts-icon3.svg" alt=""></a>
+        <a href="#"><img src="img/contacts-icon2.svg" alt=""></a>
+        <a href="#"><img src="img/contacts-icon1.svg" alt=""></a>
+    </div>
+    <button class="openContact"><img src="img/bottom-btn-icon.svg" alt="" class="openContactIcon"> <img
+            src="img/contactsHide.svg" alt="" class="hideContactIcon"></button>
+    <button class="scroll-top" onclick="scrollToTop()"><img src="img/scrollTop.svg" alt=""></button>
+    <button class="burger-btn" onclick="burger()">
+        <hr>
+        <hr>
+        <hr>
+    </button>
+    <div class="burger-menu">
+        <div class="burger-bg" onclick="burger()"></div>
+        <div class="burger-menu-menu">
+            <button class="burger-close" onclick="burger()"><img src="img/burger-close-icon.svg" alt=""></button>
+            <div class="burger-top">
+                <img src="img/logo.jpg" alt="" class="burger-logo">
+                <ul class="burger-items">
+                    <li><a href="#anchor1" class="burger-link">Ассортимент</a></li>
+                    <li><a href="#" class="burger-link">Что выбрать?</a></li>
+                    <li><a href="#" class="burger-link">О нас</a></li>
+                    <li><a href="#" class="burger-link">Преимущества</a></li>
+                    <li><a href="#" class="burger-link">Бонусная программа</a></li>
+                    <li><a href="#anchor2" class="burger-link">Отзывы</a></li>
+                    <li><a href="#" class="burger-link">Оптовым и корпоративным клиентам</a></li>
+                    <li><a href="#" class="burger-link">Наши работы</a></li>
+                    <li><a href="#" class="burger-link">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="burger-bottom">
+                <div class="burger-socials">
+                    <a href="#"><img src="img/fb-logo.svg" alt=""></a>
+                    <a href="#"><img src="img/inst-logo.svg" alt=""></a>
+                    <a href="#"><img src="img/tg-logo.svg" alt=""></a>
+                </div>
+                <a href="#" class="burger-request">Оставить заявку</a>
+            </div>
+        </div>
+
+    </div>
+    <header class="header">
+        <div class="header__logo">
+            <img src="img/logo.jpg" alt="" class="header__logo-img">
+            <img src="https://thumb.tildacdn.com/tild3735-3934-4462-b163-366435326231/-/cover/125x42/center/center/-/format/webp/dfa42b1bcf9cf1cd3b48.png"
+                class="header__logo-text" alt="">
+            <a href="tel:+380678288007" class="header__logo-num">(067) 82 88 00 7</a>
+
+        </div>
+        <ul class="header__items">
+            <li><a href="#" class="header__link">О нас</a></li>
+            <li><a href="#anchor2" class="header__link">Отзывы</a></li>
+            <li><a href="#anchor1" class="header__link">Ассортимент</a></li>
+            <li><a href="#" class="header__link">Оптовым и корпоративным клиентам</a></li>
+            <li><a href="#" class="header__link">Наши работы</a></li>
+            <li><a href="#" class="header__link">Контакты</a></li>
+        </ul>
+    </header>
+
+    <main class="main">
+
+        <div class="main-item main-item1">
+
+            <h1 class="main-item__title">Шторы и жалюзи <span class="bold underline">от производителя</span><br> у Вас
+                дома через 4 дня</h1>
+            <p class="main-item__subtitle">Успейте заказать шторы или жалюзи по акции <span class="bold">до 31
+                    Декабря!</span></p>
+            <a href="#" class="main-item__btn">Оставить заявку</a>
+        </div>
+        <div class="main-item main-item2">
+
+            <h1 class="main-item__title">Вызов мастера, замер и доставка — <br><span
+                    class="bold underline">Бесплатно!</span>
+            </h1>
+            <p class="main-item__subtitle">Успейте заказать шторы или жалюзи по акции <span class="bold">до 31
+                    Декабря!</span></p>
+            <a href="#" class="main-item__btn">Получить консультацию</a>
+        </div>
+        <div class="main-item main-item3">
+
+            <h1 class="main-item__title">На все виды жалюзи и штор <span class="bold italic">скидки до 30% </span>
+            </h1>
+            <p class="main-item__subtitle">Успейте заказать шторы или жалюзи по акции <span class="bold">до 31
+                    Декабря!</span></p>
+            <a href="#" class="main-item__btn">Рассчитать стоимость</a>
+        </div>
+
+        <div class="main-item main-item4">
+
+            <h1 class="main-item__title">Бонусная программа с возможностью <br><span class="bold underline">зарабатывать
+                </span> вместе с нами</h1>
+            <p class="main-item__subtitle">Успейте заказать шторы или жалюзи по акции <span class="bold">до 31
+                    Декабря!</span></p>
+            <a href="#" class="main-item__btn">Узнать подробнее</a>
+        </div>
+
+    </main>
+
+    <div class="shop" id="anchor1">
+        <h1 class="title" data-aos="fade-up">Большой выбор штор, ролетов, жалюзи для вашего дома</h1>
+        <div class="shop__items">
+
+            <div class="shop__item heat" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img1"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item1.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item heat" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img2"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item2.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img3"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item3.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img4"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item4.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img5"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item5.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img6"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item6.png" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img7"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item7.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img8"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item8.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img9"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item9.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img10"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item10.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img11"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item11.png" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img12"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item12.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img13"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item13.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img14"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item14.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img15"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item15.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img16"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item16.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img17"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item17.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img18"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item18.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img19"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item19.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img20"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item20.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img21"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item21.png" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img22"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item22.png" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img23"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item23.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img24"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item24.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img25"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item25.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img26"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item26.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img27"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item27.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img28"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item28.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+            <div class="shop__item" data-aos="zoom-in">
+                <div class="shop__item-img shop__item-img29"></div>
+                <p class="shop__item-title">Название рулонов</p>
+                <p class="shop__item-price"><span class="shop__item-actual-price">0 грн.</span><span
+                        class="shop__item-old-price">0 грн.</span></p>
+                <button class="shop__item-btn" data-img="item29.jpg" data-title="Название рулонов"
+                    data-price="0">Оставить
+                    заявку</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="reviews" id="anchor2">
+        <h1 class="title" data-aos="fade-up">У нас более 253 отзывов на разных независимых площадках</h1>
+        <div class="reviews__items grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+
+            <img src="img/review1.png" alt="" class="grid-item">
+            <img src="img/review2.png" alt="" class="grid-item">
+            <img src="img/review3.png" alt="" class="grid-item">
+            <img src="img/review4.png" alt="" class="grid-item">
+            <img src="img/review5.png" alt="" class="grid-item">
+            <img src="img/review6.png" alt="" class="grid-item">
+            <img src="img/review7.png" alt="" class="grid-item">
+            <img src="img/review8.png" alt="" class="grid-item">
+            <img src="img/review9.png" alt="" class="grid-item">
+            <img src="img/review10.png" alt="" class="grid-item">
+        </div>
+        <p class="reviews__description"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        preferredCountries: ["ua"],
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>
+
+</html>
