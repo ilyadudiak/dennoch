@@ -239,16 +239,16 @@ li {
     width: 100%;
 }
 
-.slider {
+.main .slider {
     min-width: 0 !important;
 }
 
-.slick-track {
+.main .slick-track {
     display: flex;
 
 }
 
-.slick-arrow {
+.main .slick-arrow {
     display: block;
     font-size: 0;
     background: url(../img/slider-arrowsvg.svg);
@@ -268,17 +268,17 @@ li {
     outline: none;
 }
 
-.slick-arrow.slick-next {
+.main .slick-arrow.slick-next {
     right: 20px;
 }
 
-.slick-arrow.slick-prev {
+.main .slick-arrow.slick-prev {
     left: 20px;
     transform: rotate(180deg);
 }
 
 /* Точки (булиты) */
-.slick-dots {
+.main .slick-dots {
     display: flex;
     gap: 10px;
     position: absolute;
@@ -291,12 +291,13 @@ li {
 .slick-dots li {}
 
 /* Активная точка */
-.slick-dots li.slick-active button {
+.main .slick-dots li.slick-active button {
     background-color: white;
 }
 
 /* Элемент точки */
-.slick-dots li button {
+
+.main .slick-dots li button {
     font-size: 0;
     border-radius: 50%;
     height: 10px;
@@ -307,7 +308,7 @@ li {
     transition: background .4s ease;
 }
 
-.slick-dots li button:hover {
+.main .slick-dots li button:hover {
     background-color: white;
 }
 
@@ -321,6 +322,7 @@ li {
     height: 48px;
     background-color: #080706;
     color: white;
+    border: none;
     padding: 13px;
     display: flex;
     flex-direction: column;
@@ -371,10 +373,12 @@ li {
     width: 100%;
     max-width: 300px;
     padding: 48px 0 40px 40px;
-
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 .burger-items {
@@ -445,6 +449,7 @@ li {
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 2;
 }
 
 .openContact {
@@ -840,13 +845,6 @@ li {
     background-repeat: no-repeat;
 }
 
-.shop__item-img29 {
-    background: url(../img/item29.jpg);
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
 .shop__item-title {
     font-family: var(--mont-font);
     font-weight: 600;
@@ -871,6 +869,7 @@ li {
     justify-content: center;
     width: auto;
     /* max-width: 200px; */
+    border: none;
     padding: 14px 30px;
     background-color: #252525;
     color: #f9f8f8;
@@ -1103,8 +1102,9 @@ li {
 .reviews__items {
     max-width: 1200px;
     width: 100%;
+
     gap: 30px 40px;
-    display: grid;
+
     margin-top: 45px;
 }
 
@@ -1116,4 +1116,244 @@ li {
 .reviews__items img:nth-child(2),
 .reviews__items img:nth-child(3) {
     margin-top: 0;
+}
+
+
+
+/* responsive code */
+
+.burger-animation-hide {
+    animation-name: burgerHide;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.burger-animation-show {
+    animation-name: burgerShow;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes burgerShow {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes burgerHide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* .burger-menu-menu{
+    transform: translateX(100%);
+} */
+
+.burger-socials {
+    padding-top: 20px;
+}
+
+.mobile-header {
+    display: none;
+}
+
+@media(max-width: 1200px) {
+    .header {
+        display: none;
+    }
+
+    .mobile-header {
+        display: flex;
+        width: 100%;
+
+        align-items: center;
+        background-color: #080706;
+        min-height: 80px;
+        color: #ffffff;
+        font-size: 18px;
+        font-family: var(--opens-font);
+    }
+
+    .mobile-header__container {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        justify-content: space-between;
+        margin-left: 5%;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .title:before {
+        display: none;
+    }
+
+    .title:after {
+        display: none;
+    }
+
+    .main-item {
+        background-size: cover !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .main .slick-prev {
+        transform: rotate(180deg) scale(.6) !important;
+
+    }
+
+    .main-item {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        padding-bottom: 20px;
+        min-height: 700px;
+    }
+
+    .main .slick-dots {
+        left: 42%;
+    }
+
+    .main .slick-next {
+        transform: scale(.6);
+
+    }
+
+    .main .slick-arrow {
+        display: none !important;
+    }
+
+    /* .main-item__btn{
+        margin-bottom: 60px;
+    } */
+    .main .slick-dots li button:hover {
+        background-color: none;
+    }
+
+}
+
+.reviews__items {
+
+    padding-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+    .reviews__items {
+        padding-left: 100px;
+    }
+}
+
+@media (max-width: 910px) {
+    .reviews__items {
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 810px) {
+    .reviews__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.slick-arrow {
+    z-index: 1;
+}
+
+@media (max-width: 514px) {
+    .mobile-header__container {
+        width: 74%;
+    }
+}
+
+@media (max-width: 405px) {
+    .main-item__title {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 470px) {
+    .cart-item {
+        flex-direction: column;
+        gap: 15px 0;
+
+    }
+
+    .cart__menu {
+        overflow-y: auto;
+        top: 30px;
+    }
+
+    .cart__bg {
+        background-color: black;
+    }
+}
+
+@media (max-width: 370px) {
+    .reviews__items img {
+        width: 100%;
+    }
+
+    .reviews__items {
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .main-item__title {
+        font-size: 38px;
+    }
+
+    .main-item__subtitle {
+        font-size: 16px;
+    }
+
+    .reviews .title {
+        font-size: 38px;
+    }
+
+    .reviews {
+        padding: 0 10px;
+    }
+}
+
+
+@media (max-width: 350px) {
+    .header__logo-num {
+        padding-left: 5px;
+        font-size: 14px;
+    }
+
+    .cart-inputs select {
+        background: none;
+        font-size: 14px;
+    }
+
+    .cart-inputs input {
+        font-size: 14px;
+    }
+
+    .cart__menu {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 327px) {
+    .main-item__title {
+        font-size: 32px;
+    }
 }
