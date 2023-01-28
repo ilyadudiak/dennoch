@@ -15,21 +15,21 @@ burgerMenu.style.display = "none";
 burgerMenuMenu.classList.add('burger-animation-hide');
 function burger() {
     if (burgerMenu.style.display == "flex") {
-        setTimeout(()=>{
+        setTimeout(() => {
             burgerMenu.style.display = "none";
             document.body.style.overflow = "auto";
         }, 500);
-        
+
         burgerMenuMenu.classList.remove('burger-animation-show');
         burgerMenuMenu.classList.add('burger-animation-hide');
-        
+
     } else {
         burgerMenu.style.display = "flex";
         document.body.style.overflow = "hidden";
-        
+
         burgerMenuMenu.classList.add('burger-animation-show');
         burgerMenuMenu.classList.remove('burger-animation-hide');
-        
+
     }
 }
 document.querySelector(".scroll-top").style.display = "none";
@@ -145,7 +145,7 @@ addButton.forEach(element => {
 
 
 const TOKEN = "5431953570:AAGD2c7LwhPs-Os4RtIV3OB3JqGG24Xob2k";
-const CHAT_ID = "-1001883424702";
+const CHAT_ID = "-1001815097482";
 const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 document.getElementById('main-form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -167,7 +167,8 @@ document.getElementById('main-form').addEventListener('submit', function (e) {
             let cartMenu = document.querySelector('.cart__menu');
             cartMenu.classList.add('processed');
             cartMenu.innerHTML = `
-            <h1 class="success-title">Заявка успешно отправлена!</h1>
+            <img class="cartSuccessImage" src="img/success.png">
+            <h1 class="success-title">Заявка успешно <br> отправлена!</h1>
            `;
             productObj = {
                 name: '',
@@ -179,6 +180,7 @@ document.getElementById('main-form').addEventListener('submit', function (e) {
             let cartMenu = document.querySelector('.cart__menu');
             cartMenu.classList.add('processed');
             cartMenu.innerHTML = `
+            
             <h1 class="eror-title">Ой! Что то пошло не-так!</h1>
            `;
             console.log(err);
@@ -192,15 +194,31 @@ document.getElementById('main-form').addEventListener('submit', function (e) {
 
 let reviews = $('.reviews__items');
 
-if(reviews.outerWidth() > 805){
+if (reviews.outerWidth() > 805) {
     reviews.masonry({
         itemSelector: '.grid-item',
         columnWidth: 200
     });
 }
 
-window.addEventListener('resize', ()=>{
-    if(reviews.outerWidth() > 782){
+// if ($('.shop__items').outerWidth() < 1058) {
+//     let rows = document.querySelectorAll('.shop-row');
+//     rows.forEach(element => {
+//         element.slick({
+//             infinite: true,
+//             slidesToShow: 1,
+//             draggable: false,
+//             rows: 1,
+//             slidesPerRow: 1,
+//             autoplay: false,
+//             autoplaySpeed: 3000,
+//             dots: false,
+//         });
+//     });
+// }
+
+window.addEventListener('resize', () => {
+    if (reviews.outerWidth() > 782) {
         reviews.masonry({
             itemSelector: '.grid-item',
             columnWidth: 200

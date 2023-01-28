@@ -141,7 +141,7 @@ li {
 }
 
 .main-item1 {
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.40)), url("https://thumb.tildacdn.com/tild6630-3265-4264-b961-386332303238/-/format/webp/IMG_9250.jpg");
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.30)), url("https://images.unsplash.com/photo-1536627792483-9300ee53afdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80");
     /* background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.40)); */
     background-size: 100%;
     background-position: center;
@@ -167,6 +167,15 @@ li {
 }
 
 .main-item4 {
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.40)), url("https://thumb.tildacdn.com/tild6261-3463-4239-b239-323366643138/-/format/webp/2.jpg");
+    /* background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.40)); */
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.main-item5 {
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.40)), url("https://thumb.tildacdn.com/tild6261-3463-4239-b239-323366643138/-/format/webp/2.jpg");
     /* background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.40)); */
     background-size: 100%;
@@ -597,13 +606,19 @@ li {
 
 .shop__items {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     max-width: 1200px;
     width: 100%;
-    gap: 98px 40px;
-
+    gap: 40px;
+    padding: 0 10px;
     margin-top: 49px;
+}
+
+.shop-row {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .shop__item {
@@ -1073,14 +1088,40 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 25px 0;
     padding: 0;
 }
 
+.cartSuccessImage {
+    animation-name: imgSuccessAnimation;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+}
+
 .success-title {
-    color: rgb(54, 204, 54);
+    background: #3ECF6A;
+    background: linear-gradient(to bottom left, #3ECF6A 0%, #40CFC5 63%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-family: var(--mont-font);
     font-size: 32px;
     text-align: center;
+    animation: successTitleAnimation;
+    animation-duration: .6s;
+    animation-iteration-count: 1;
+}
+
+@keyframes successTitleAnimation {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+    }
+
+    100% {
+        font-size: 32px;
+        opacity: 1;
+    }
 }
 
 .eror-title {
@@ -1356,4 +1397,31 @@ li {
     .main-item__title {
         font-size: 32px;
     }
+}
+
+.cart__menu {
+    animation-name: animationCartShow;
+    animation-duration: .6s;
+    animation-iteration-count: 1;
+}
+
+@keyframes animationCartShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 390px) {
+    .shop__items {
+        padding: 0 30px;
+    }
+}
+
+
+.shop__item-old-price {
+    padding-left: 10px;
 }
